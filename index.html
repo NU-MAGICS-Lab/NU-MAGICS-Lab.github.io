@@ -91,9 +91,10 @@
     .gold-letter { color: #C28A2E; }
 
     /* News badge colors */
-    .badge-media   { background: #dbeafe; color: #1e40af; }
-    .badge-preprint{ background: #dcfce7; color: #15803d; }
-    .badge-grant   { background: #fef3c7; color: #92400e; }
+    .badge-media      { background: #dbeafe; color: #1e40af; }
+    .badge-preprint   { background: #dcfce7; color: #15803d; }
+    .badge-grant      { background: #fef3c7; color: #92400e; }
+    .badge-publication{ background: #f3e8ff; color: #6b21a8; }
 
     /* Active nav link */
     .nav-link.active { color: #C28A2E; border-bottom: 2px solid #C28A2E; }
@@ -143,6 +144,7 @@
         <!-- Desktop nav links -->
         <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
           <li><a href="#home"          class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Home</a></li>
+          <li><a href="#news"          class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">News</a></li>
           <li><a href="#research"      class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Research</a></li>
           <li><a href="#team"          class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Team</a></li>
           <li><a href="#director"      class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Lab Director</a></li>
@@ -165,6 +167,7 @@
       <div id="mobile-menu" role="navigation" aria-label="Mobile navigation">
         <ul class="flex flex-col gap-0 pb-4 list-none m-0 p-0">
           <li><a href="#home"          class="mobile-nav-link block py-2.5 px-2 text-navy font-medium hover:text-gold transition-colors border-b border-gray-100">Home</a></li>
+          <li><a href="#news"          class="mobile-nav-link block py-2.5 px-2 text-navy font-medium hover:text-gold transition-colors border-b border-gray-100">News</a></li>
           <li><a href="#research"      class="mobile-nav-link block py-2.5 px-2 text-navy font-medium hover:text-gold transition-colors border-b border-gray-100">Research</a></li>
           <li><a href="#team"          class="mobile-nav-link block py-2.5 px-2 text-navy font-medium hover:text-gold transition-colors border-b border-gray-100">Team</a></li>
           <li><a href="#director"      class="mobile-nav-link block py-2.5 px-2 text-navy font-medium hover:text-gold transition-colors border-b border-gray-100">Lab Director</a></li>
@@ -253,10 +256,46 @@
             <div class="news-scroll pr-1">
               <ul class="flex flex-col gap-0 list-none m-0 p-0" id="news-list">
 
-                <!-- 2025 -->
-                <li class="text-xs font-semibold text-slate-custom uppercase tracking-widest mb-2 mt-1">2025</li>
+                <!-- 2026 -->
+                <li class="text-xs font-semibold text-slate-custom uppercase tracking-widest mb-2 mt-1">2026</li>
 
-                <!-- Item 1 -->
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"The Architecture of Illusion: Network Opacity and Strategic Escalation"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">R Ebrahimi, S Ilami, B Heydari, I Trevino, M Franceschetti</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Communication Enhances LLMs' Stability in Strategic Thinking"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">N Lore, B Heydari</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Adaptive Information Modulation: Designing Governance Mechanisms for Multi-Agent AI Systems"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Q Chen, S Ilami, N Lore, B Heydari · <em>Journal of Mechanical Design</em></p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Architecting adaptive networks: Reinforcement learning with generative policies for multi-agent governance"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Q Chen, B Heydari · <em>Journal of Mechanical Design</em>, 148(1), 011701</p>
+                </li>
+
+                <!-- 2025 -->
+                <li class="text-xs font-semibold text-slate-custom uppercase tracking-widest mb-2 mt-3">2025</li>
+
                 <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
                   <div class="flex items-start gap-2 flex-wrap mb-1">
                     <span class="badge-media text-xs font-medium px-2 py-0.5 rounded">Media</span>
@@ -266,52 +305,143 @@
                   </p>
                 </li>
 
-                <!-- Item 2 -->
                 <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
                   <div class="flex items-start gap-2 flex-wrap mb-1">
-                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
                   </div>
-                  <p class="text-sm text-gray-700 leading-snug font-medium">"The Shifting Dynamics of Online Knowledge Platforms and the Implications for Generative AI Sustainability"</p>
-                  <p class="text-xs text-slate-custom mt-0.5">Negin Maddah, Babak Heydari</p>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Extreme Design: An Editorial on a New Research Framework Within Engineering Design"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">T Marion, M Yang, A Banzaert, K Becker, E Brubaker, R Bruggeman, ... · <em>Journal of Mechanical Design</em>, 147(12), 120301</p>
                 </li>
 
-                <!-- Item 3 -->
                 <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
                   <div class="flex items-start gap-2 flex-wrap mb-1">
                     <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
                     <span class="text-xs text-slate-custom italic">Under Review</span>
                   </div>
-                  <p class="text-sm text-gray-700 leading-snug font-medium">"Cultivating theory of mind in smaller LLMs for strategic multi-agent behavior."</p>
-                  <p class="text-xs text-slate-custom mt-0.5">Nunzio Lore, Sepehr Ilami, Babak Heydari</p>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Network Topology Matters, But Not Always: Mobility Networks in Epidemic Forecasting"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">S Ilami, Q Cao, B Heydari</p>
                 </li>
 
-                <!-- Item 4 -->
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Core or periphery: Examining where to allocate heterogeneous inventors and the impact on firms' innovation"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">B Heydari, S Chattopadhyay, S Padhee, S Karim · <em>Strategic Management Journal</em></p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Generative Network Design for Multi-Agent Coordination: A VAE-Assisted Deep RL Approach"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Q Chen, B Heydari · <em>ASME Journal of Mechanical Design</em>, 147</p>
+                </li>
+
                 <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
                   <div class="flex items-start gap-2 flex-wrap mb-1">
                     <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
-                    <span class="text-xs text-slate-custom italic">R&amp;R at ASME JMD</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
                   </div>
-                  <p class="text-sm text-gray-700 leading-snug font-medium">"Resource Governance in Networked Systems via Integrated Variational Autoencoders and Reinforcement Learning"</p>
-                  <p class="text-xs text-slate-custom mt-0.5">Qiliang Chen, Babak Heydari</p>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Evolution of Innovation in Technology Life cycle: Isolating Innovation Legacy from Quality"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">S Padhee, B Heydari</p>
                 </li>
 
-                <!-- 2024 (hidden initially) -->
-                <li class="news-item text-xs font-semibold text-slate-custom uppercase tracking-widest mb-2 mt-3 more-news hidden">2024</li>
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Networks and Graphs for Engineering Systems and Design"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Z Sha, A Layton, B Heydari, DL Van Bossuyt · <em>Journal of Computing and Information Science in Engineering</em>, 25(6), 060301</p>
+                </li>
 
-                <!-- Item 5 -->
-                <li class="news-item border-l-2 border-gold-light pl-4 pb-4 mb-1 more-news hidden">
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Adaptive network intervention for complex systems: A hierarchical graph reinforcement learning approach"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Q Chen, B Heydari · <em>Journal of Computing and Information Science in Engineering</em>, 25(6), 061006</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Competing for Attention: Explainable Deep Reinforcement Learning for Behavior-Aware Recommendations"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Q Cao, Q Chen, B Heydari</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Collective Artificial Intelligence: Specialist-Generalist Network Structures &amp; Task Performance"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">J Meluso, L Hébert-Dufresne, B Heydari, C Riedl, HO Gao</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Networks and Graphs for Engineering Systems and Design"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">B Heydari, DL Van Bossuyt</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"The Shifting Dynamics of Online Knowledge Platforms and the Implications for Generative AI Sustainability"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">B Heydari, N Maddah</p>
+                </li>
+
+                <!-- 2024 -->
+                <li class="text-xs font-semibold text-slate-custom uppercase tracking-widest mb-2 mt-3">2024</li>
+
+                <li class="news-item border-l-2 border-gold-light pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Platform-Driven Collaboration Patterns: Structural Evolution Over Time and Scale"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">N Maddah, B Heydari · <em>IEEE Transactions on Computational Social Systems</em>, 11(6), 7814–7829</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold-light pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Integrated Design and Governance of Agentic AI Systems through Adaptive Information Modulation"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">Q Chen, S Ilami, N Lore, B Heydari</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold-light pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-preprint text-xs font-medium px-2 py-0.5 rounded">Preprint</span>
+                    <span class="text-xs text-slate-custom italic">Under Review</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Large model strategic thinking, small model efficiency: transferring theory of mind in large language models"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">N Lorè, S Ilami, B Heydari</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold-light pl-4 pb-4 mb-1">
                   <div class="flex items-start gap-2 flex-wrap mb-1">
                     <span class="badge-grant text-xs font-medium px-2 py-0.5 rounded">Grant</span>
                   </div>
-                  <p class="text-sm text-gray-700 leading-snug">Professor Heydari is a PI of a new <strong>$1M NSF grant</strong>.</p>
+                  <p class="text-sm text-gray-700 leading-snug">Professor Heydari is a PI of a new <strong>NSF grant</strong> — "IHBEM: No One Lives in a Bubble: Incorporating Group Dynamics into Epidemic Models" (Award #2421289).</p>
+                </li>
+
+                <li class="news-item border-l-2 border-gold-light pl-4 pb-4 mb-1">
+                  <div class="flex items-start gap-2 flex-wrap mb-1">
+                    <span class="badge-publication text-xs font-medium px-2 py-0.5 rounded">Publication</span>
+                  </div>
+                  <p class="text-sm text-gray-700 leading-snug font-medium">"Strategic behavior of large language models and the role of game structure versus contextual framing"</p>
+                  <p class="text-xs text-slate-custom mt-0.5">N Lorè, B Heydari · <em>Scientific Reports</em>, 14(1), 18490</p>
                 </li>
 
               </ul>
-
-              <!-- Show more -->
-              <button id="show-more-btn" class="mt-3 text-sm font-medium text-gold hover:text-gold-dark transition-colors underline underline-offset-2">
-                Show more ↓
-              </button>
             </div>
           </div>
         </div>
@@ -545,13 +675,13 @@
 
             <div class="prose prose-sm max-w-none font-body text-gray-700 leading-relaxed space-y-4">
               <p>
-                I am an interdisciplinary scholar working at the intersection of computing, economics and behavioral sciences, and systems engineering. I am a tenured associate professor in Northeastern University's College of Engineering, with affiliations at the Network Science Institute, Institute of Experiential AI, and School of Public Policy and Urban Affairs. I received my Ph.D. from UC Berkeley's Electrical Engineering and Computer Science Department, with a minor in economics and management sciences, and a graduate certificate from Haas Business School. My undergraduate studies combined electrical engineering and chemistry at Sharif University. Before becoming a faculty, I was working in Silicon Valley as an entrepreneur and an RF/mm-wave chip designer.
+                Prof. Heydari is an interdisciplinary scholar working at the intersection of computing, economics and behavioral sciences, and systems engineering. He is a tenured associate professor in Northeastern University's College of Engineering, with affiliations at the Network Science Institute, Institute of Experiential AI, and School of Public Policy and Urban Affairs. He received his Ph.D. from UC Berkeley's Electrical Engineering and Computer Science Department, with a minor in economics and management sciences, and a graduate certificate from Haas Business School. His undergraduate studies combined electrical engineering and chemistry at Sharif University. Before becoming a faculty, he was working in Silicon Valley as an entrepreneur and an RF/mm-wave chip designer.
               </p>
               <p>
-                My research focuses on computational modeling of complex sociotechnical systems to inform engineering design and policy interventions. I've applied this approach to diverse domains, including Human-AI integration and collective intelligence, platform systems, behavioral epidemic modeling and public health, organizational teamwork, system resilience, and systems engineering problems such as distributed satellite system architecture. My work has been supported by the National Science Foundation (including a CAREER award), DARPA, IARPA, and private corporations. I've published in general science journals as well as top-tier venues across systems engineering, public policy, economics, social sciences, electrical engineering, and computing. My research has been featured in media outlets such as <em>Wired</em>, the <em>Boston Globe</em>, and the <em>New York Times</em>.
+                His research focuses on computational modeling of complex sociotechnical systems to inform engineering design and policy interventions. He has applied this approach to diverse domains, including Human-AI integration and collective intelligence, platform systems, behavioral epidemic modeling and public health, organizational teamwork, system resilience, and systems engineering problems such as distributed satellite system architecture. His work has been supported by the National Science Foundation (including a CAREER award), DARPA, IARPA, and private corporations. He has published in general science journals as well as top-tier venues across systems engineering, public policy, economics, social sciences, electrical engineering, and computing. His research has been featured in media outlets such as <em>Wired</em>, the <em>Boston Globe</em>, and the <em>New York Times</em>.
               </p>
               <p>
-                In addition to my research, I am deeply committed to academic service. Since 2020, I have served as the program lead and director for the Engineering Management program at Northeastern. From 2020 to 2023, I was President of the Council of Engineering Systems Scholars and Universities (CESUN), a spin-off of MIT's Engineering Systems Division, which focuses on technical and policy design for complex sociotechnical systems. I have also been chairing the Scientific Advisory Committee of Future Resilient Systems since 2020, a large-scale 10-year joint initiative between ETH Zurich and the government of Singapore.
+                In addition to his research, he is deeply committed to academic service. Since 2020, he has served as the program lead and director for the Engineering Management program at Northeastern. From 2020 to 2023, he was President of the Council of Engineering Systems Scholars and Universities (CESUN), a spin-off of MIT's Engineering Systems Division, which focuses on technical and policy design for complex sociotechnical systems. He has also been chairing the Scientific Advisory Committee of Future Resilient Systems since 2020, a large-scale 10-year joint initiative between ETH Zurich and the government of Singapore.
               </p>
             </div>
 
@@ -698,6 +828,7 @@
           <h4 class="font-heading text-sm font-semibold text-white/80 uppercase tracking-widest mb-4">Quick Links</h4>
           <ul class="space-y-2 list-none m-0 p-0">
             <li><a href="#home"          class="text-sm text-white/60 hover:text-gold transition-colors">Home</a></li>
+            <li><a href="#news"          class="text-sm text-white/60 hover:text-gold transition-colors">News</a></li>
             <li><a href="#research"      class="text-sm text-white/60 hover:text-gold transition-colors">Research</a></li>
             <li><a href="#team"          class="text-sm text-white/60 hover:text-gold transition-colors">Team</a></li>
             <li><a href="#director"      class="text-sm text-white/60 hover:text-gold transition-colors">Lab Director</a></li>
@@ -841,20 +972,7 @@
         sectionObserver.observe(section);
       });
 
-      // 6. News "Show more" toggle
-      var showMoreBtn = document.getElementById('show-more-btn');
-      var moreNewsItems = document.querySelectorAll('.more-news');
-      var showingMore = false;
-
-      if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', function () {
-          showingMore = !showingMore;
-          moreNewsItems.forEach(function (item) {
-            item.classList.toggle('hidden', !showingMore);
-          });
-          showMoreBtn.textContent = showingMore ? 'Show less ↑' : 'Show more ↓';
-        });
-      }
+      // 6. (Show more toggle removed — news section is now fully scrollable)
 
       // 7. Scroll-triggered fade-in for sections
       var fadeElements = document.querySelectorAll('.fade-in-up');
@@ -881,7 +999,7 @@
       if (!canvas) return;
       var ctx = canvas.getContext('2d');
       var nodes = [];
-      var NUM_NODES = 80;
+      var NUM_NODES = 480;
       var CONNECT_DIST = 150;
       var MOUSE_REPEL_DIST = 120;
       var MOUSE_REPEL_STRENGTH = 0.8;
@@ -901,7 +1019,7 @@
             y: Math.random() * canvas.height,
             vx: (Math.random() - 0.5) * 0.4,
             vy: (Math.random() - 0.5) * 0.4,
-            r: Math.random() * 1.5 + 1.5
+            r: Math.random() * 2 + 2
           });
         }
       }
