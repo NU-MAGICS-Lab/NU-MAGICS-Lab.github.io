@@ -134,18 +134,19 @@
 
         <!-- Logo / Wordmark -->
         <a href="#home" class="flex items-center gap-2 group">
-          <!-- Northeastern N placeholder -->
-          <span class="flex items-center justify-center w-8 h-8 rounded bg-gold text-white font-heading font-bold text-sm leading-none select-none">N</span>
-          <span class="font-heading font-bold text-navy text-lg tracking-wide group-hover:text-navy-light transition-colors">MAGICS LAB</span>
+          <!-- Northeastern logo -->
+          <img src="assets/images/northeastern-logo.png" alt="Northeastern University" class="w-8 h-8 rounded object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="items-center justify-center w-8 h-8 rounded bg-gold text-white font-heading font-bold text-sm leading-none select-none" style="display:none;">N</span>
+          <span class="font-heading font-bold text-white text-lg tracking-wide group-hover:text-gold transition-colors">MAGICS LAB</span>
         </a>
 
         <!-- Desktop nav links -->
         <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
-          <li><a href="#home"          class="nav-link text-sm font-body font-medium text-navy hover:text-gold transition-colors pb-0.5">Home</a></li>
-          <li><a href="#research"      class="nav-link text-sm font-body font-medium text-navy hover:text-gold transition-colors pb-0.5">Research</a></li>
-          <li><a href="#team"          class="nav-link text-sm font-body font-medium text-navy hover:text-gold transition-colors pb-0.5">Team</a></li>
-          <li><a href="#director"      class="nav-link text-sm font-body font-medium text-navy hover:text-gold transition-colors pb-0.5">Lab Director</a></li>
-          <li><a href="#collaboration" class="nav-link text-sm font-body font-medium text-navy hover:text-gold transition-colors pb-0.5">Collaboration</a></li>
+          <li><a href="#home"          class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Home</a></li>
+          <li><a href="#research"      class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Research</a></li>
+          <li><a href="#team"          class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Team</a></li>
+          <li><a href="#director"      class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Lab Director</a></li>
+          <li><a href="#collaboration" class="nav-link text-base font-body font-semibold text-white hover:font-bold hover:text-gold transition-colors pb-0.5">Collaboration</a></li>
         </ul>
 
         <!-- Mobile hamburger -->
@@ -154,7 +155,7 @@
           aria-label="Toggle navigation menu"
           aria-expanded="false"
           aria-controls="mobile-menu"
-          class="md:hidden flex items-center justify-center w-10 h-10 text-navy hover:text-gold transition-colors"
+          class="md:hidden flex items-center justify-center w-10 h-10 text-white hover:text-gold transition-colors"
         >
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
@@ -178,24 +179,8 @@
     <!-- ===== HERO SECTION ===== -->
     <section id="home" class="hero-bg min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
 
-      <!-- SVG network pattern overlay -->
-      <svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <pattern id="nodes" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-            <circle cx="10" cy="10" r="2" fill="#C28A2E"/>
-            <circle cx="60" cy="40" r="1.5" fill="#C28A2E"/>
-            <circle cx="110" cy="20" r="2" fill="#C28A2E"/>
-            <circle cx="30" cy="80" r="1.5" fill="#C28A2E"/>
-            <circle cx="90" cy="90" r="2" fill="#C28A2E"/>
-            <line x1="10" y1="10" x2="60" y2="40" stroke="#C28A2E" stroke-width="0.5"/>
-            <line x1="60" y1="40" x2="110" y2="20" stroke="#C28A2E" stroke-width="0.5"/>
-            <line x1="60" y1="40" x2="90" y2="90" stroke="#C28A2E" stroke-width="0.5"/>
-            <line x1="30" y1="80" x2="90" y2="90" stroke="#C28A2E" stroke-width="0.5"/>
-            <line x1="10" y1="10" x2="30" y2="80" stroke="#C28A2E" stroke-width="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#nodes)"/>
-      </svg>
+      <!-- Dynamic network canvas background -->
+      <canvas id="network-canvas" class="absolute inset-0 w-full h-full" style="pointer-events: auto; z-index: 0;" aria-hidden="true"></canvas>
 
       <!-- Hero content -->
       <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -346,13 +331,14 @@
 
           <!-- Card 1 -->
           <article class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
-            <!-- Diagram placeholder -->
+            <!-- Diagram -->
             <div
-              class="w-full bg-gray-100 aspect-video flex items-center justify-center"
+              class="w-full bg-gray-100 aspect-video flex items-center justify-center overflow-hidden"
               role="img"
-              aria-label="Sociotechnical Systems Framework Diagram placeholder"
+              aria-label="Sociotechnical Systems Framework Diagram"
             >
-              <span class="text-sm text-gray-400 font-body italic px-4 text-center">Sociotechnical Systems Framework Diagram</span>
+              <img src="assets/images/sociotechnical-systems.png" alt="Sociotechnical Systems Framework Diagram" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="text-sm text-gray-400 font-body italic px-4 text-center" style="display:none;">Sociotechnical Systems Framework Diagram</span>
             </div>
             <div class="p-6">
               <h3 class="font-heading text-xl font-semibold text-navy mb-3">Design and Governance of Sociotechnical Systems</h3>
@@ -364,13 +350,14 @@
 
           <!-- Card 2 -->
           <article class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
-            <!-- Diagram placeholder -->
+            <!-- Diagram -->
             <div
-              class="w-full bg-gray-100 aspect-video flex items-center justify-center"
+              class="w-full bg-gray-100 aspect-video flex items-center justify-center overflow-hidden"
               role="img"
-              aria-label="Multi-Agent Network Diagram placeholder"
+              aria-label="Multi-Agent Network Diagram"
             >
-              <span class="text-sm text-gray-400 font-body italic px-4 text-center">Multi-Agent Network Diagram</span>
+              <img src="assets/images/multi-agent-systems.png" alt="Multi-Agent Network Diagram" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="text-sm text-gray-400 font-body italic px-4 text-center" style="display:none;">Multi-Agent Network Diagram</span>
             </div>
             <div class="p-6">
               <h3 class="font-heading text-xl font-semibold text-navy mb-3">Multi-Agent Human-AI Systems</h3>
@@ -402,40 +389,14 @@
           <p class="font-heading text-lg text-gold">Current Lab Members</p>
         </div>
 
-        <!-- Team grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          <!-- Qingtao Cao -->
-          <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
-            <div
-              class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px]"
-              role="img"
-              aria-label="Team member photo placeholder for Qingtao Cao"
-            >
-              <span class="text-2xl font-heading font-semibold text-gray-400">QC</span>
-            </div>
-            <h3 class="font-body font-semibold text-navy text-base">Qingtao Cao</h3>
-            <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              <span class="font-semibold text-gold">Research Interests:</span><br>
-              Network Science, Multi-Agent Systems, Sharing Economy, Computational Methods for Policy and Regulations, Spatiotemporal Data Analysis
-            </p>
-            <div class="flex justify-center gap-3 mt-3">
-              <a href="#" aria-label="Qingtao Cao website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Qingtao Cao email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Qingtao Cao LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Qingtao Cao Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
-            </div>
-          </div>
+        <!-- Current Team grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- Negin Maddah -->
           <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
-            <div
-              class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px]"
-              role="img"
-              aria-label="Team member photo placeholder for Negin Maddah"
-            >
-              <span class="text-2xl font-heading font-semibold text-gray-400">NM</span>
+            <div class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px] overflow-hidden">
+              <img src="assets/images/negin-maddah.jpg" alt="Negin Maddah" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <span class="text-2xl font-heading font-semibold text-gray-400 items-center justify-center w-full h-full" style="display:none;" role="img" aria-label="Team member photo placeholder for Negin Maddah">NM</span>
             </div>
             <h3 class="font-body font-semibold text-navy text-base">Negin Maddah</h3>
             <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
@@ -451,55 +412,120 @@
             </div>
           </div>
 
-          <!-- Soumyakant Padhee -->
+          <!-- Sepehr Ilami -->
           <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
-            <div
-              class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px]"
-              role="img"
-              aria-label="Team member photo placeholder for Soumyakant Padhee"
-            >
-              <span class="text-2xl font-heading font-semibold text-gray-400">SP</span>
+            <div class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px] overflow-hidden">
+              <img src="assets/images/sepehr-ilami.jpg" alt="Sepehr Ilami" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <span class="text-2xl font-heading font-semibold text-gray-400 items-center justify-center w-full h-full" style="display:none;" role="img" aria-label="Team member photo placeholder for Sepehr Ilami">SI</span>
             </div>
-            <h3 class="font-body font-semibold text-navy text-base">Soumyakant Padhee</h3>
+            <h3 class="font-body font-semibold text-navy text-base">Sepehr Ilami</h3>
             <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
             <p class="text-xs text-gray-600 leading-relaxed">
               <span class="font-semibold text-gold">Research Interests:</span><br>
-              Innovation in Engineering Design Teams, Causal Identification in SocioTechnical Systems, Experimental Methods
+              Multi-Agent Systems, Strategic Behavior of LLMs, Theory of Mind in AI
             </p>
             <div class="flex justify-center gap-3 mt-3">
-              <a href="#" aria-label="Soumyakant Padhee website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Soumyakant Padhee email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Soumyakant Padhee LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Soumyakant Padhee Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Sepehr Ilami website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Sepehr Ilami email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Sepehr Ilami LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Sepehr Ilami Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
             </div>
           </div>
 
-          <!-- Qiliang Chen -->
+          <!-- Hongan Zhu -->
           <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
-            <div
-              class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px]"
-              role="img"
-              aria-label="Team member photo placeholder for Qiliang Chen"
-            >
-              <span class="text-2xl font-heading font-semibold text-gray-400">QC</span>
+            <div class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px] overflow-hidden">
+              <img src="assets/images/hongan-zhu.jpg" alt="Hongan Zhu" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <span class="text-2xl font-heading font-semibold text-gray-400 items-center justify-center w-full h-full" style="display:none;" role="img" aria-label="Team member photo placeholder for Hongan Zhu">HZ</span>
             </div>
-            <h3 class="font-body font-semibold text-navy text-base">Qiliang Chen</h3>
+            <h3 class="font-body font-semibold text-navy text-base">Hongan Zhu</h3>
             <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
             <p class="text-xs text-gray-600 leading-relaxed">
               <span class="font-semibold text-gold">Research Interests:</span><br>
-              Artificial Intelligence, Meta Reinforcement Learning, Modularity, Multi-Agent Systems, Interpretable AI
+              Complex Systems, Network Science, Computational Methods
             </p>
             <div class="flex justify-center gap-3 mt-3">
-              <a href="#" aria-label="Qiliang Chen website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Qiliang Chen email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Qiliang Chen LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-              <a href="#" aria-label="Qiliang Chen Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Hongan Zhu website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Hongan Zhu email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Hongan Zhu LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+              <a href="#" aria-label="Hongan Zhu Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
             </div>
           </div>
-
-          <!-- Add additional team members (Masters students, alumni, etc.) below -->
 
         </div>
+
+        <!-- Past Team Members -->
+        <div class="mt-16">
+          <div class="text-center mb-10">
+            <h3 class="font-heading text-2xl font-semibold text-navy mb-2">Past Team Members</h3>
+            <p class="font-heading text-base text-gold">Alumni</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Qingtao Cao -->
+            <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
+              <div class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px] overflow-hidden">
+                <img src="assets/images/qingtao-cao.jpg" alt="Qingtao Cao" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span class="text-2xl font-heading font-semibold text-gray-400 items-center justify-center w-full h-full" style="display:none;" role="img" aria-label="Team member photo placeholder for Qingtao Cao">QC</span>
+              </div>
+              <h3 class="font-body font-semibold text-navy text-base">Qingtao Cao</h3>
+              <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gold">Research Interests:</span><br>
+                Network Science, Multi-Agent Systems, Sharing Economy, Computational Methods for Policy and Regulations, Spatiotemporal Data Analysis
+              </p>
+              <div class="flex justify-center gap-3 mt-3">
+                <a href="#" aria-label="Qingtao Cao website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Qingtao Cao email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Qingtao Cao LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Qingtao Cao Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- Soumyakant Padhee -->
+            <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
+              <div class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px] overflow-hidden">
+                <img src="assets/images/soumyakant-padhee.jpg" alt="Soumyakant Padhee" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span class="text-2xl font-heading font-semibold text-gray-400 items-center justify-center w-full h-full" style="display:none;" role="img" aria-label="Team member photo placeholder for Soumyakant Padhee">SP</span>
+              </div>
+              <h3 class="font-body font-semibold text-navy text-base">Soumyakant Padhee</h3>
+              <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gold">Research Interests:</span><br>
+                Innovation in Engineering Design Teams, Causal Identification in SocioTechnical Systems, Experimental Methods
+              </p>
+              <div class="flex justify-center gap-3 mt-3">
+                <a href="#" aria-label="Soumyakant Padhee website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Soumyakant Padhee email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Soumyakant Padhee LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Soumyakant Padhee Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- Qiliang Chen -->
+            <div class="bg-white border border-gray-100 rounded-lg p-5 card-hover text-center">
+              <div class="aspect-square rounded-lg bg-gray-200 flex items-center justify-center mb-4 mx-auto w-full max-w-[160px] overflow-hidden">
+                <img src="assets/images/qiliang-chen.jpg" alt="Qiliang Chen" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span class="text-2xl font-heading font-semibold text-gray-400 items-center justify-center w-full h-full" style="display:none;" role="img" aria-label="Team member photo placeholder for Qiliang Chen">QC</span>
+              </div>
+              <h3 class="font-body font-semibold text-navy text-base">Qiliang Chen</h3>
+              <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gold">Research Interests:</span><br>
+                Artificial Intelligence, Meta Reinforcement Learning, Modularity, Multi-Agent Systems, Interpretable AI
+              </p>
+              <div class="flex justify-center gap-3 mt-3">
+                <a href="#" aria-label="Qiliang Chen website" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="globe" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Qiliang Chen email" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Qiliang Chen LinkedIn" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                <a href="#" aria-label="Qiliang Chen Google Scholar" class="text-gray-400 hover:text-gold transition-colors"><i data-lucide="graduation-cap" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -551,13 +577,14 @@
 
           <!-- Right: Photo + Contact -->
           <div class="flex flex-col items-center lg:items-start gap-5">
-            <!-- Photo placeholder -->
+            <!-- Photo -->
             <div
-              class="w-full max-w-[260px] aspect-[3/4] rounded-lg bg-gray-200 flex items-center justify-center"
+              class="w-full max-w-[260px] aspect-[3/4] rounded-lg bg-gray-200 flex items-center justify-center overflow-hidden"
               role="img"
-              aria-label="Professor Babak Heydari professional headshot placeholder"
+              aria-label="Professor Babak Heydari professional headshot"
             >
-              <div class="text-center">
+              <img src="assets/images/babak-heydari.jpg" alt="Professor Babak Heydari" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="text-center" style="display:none;">
                 <span class="text-3xl font-heading font-semibold text-gray-400 block">BH</span>
                 <span class="text-xs text-gray-400 mt-1 block">Photo coming soon</span>
               </div>
@@ -578,7 +605,7 @@
               <h4 class="font-heading text-sm font-semibold text-navy mb-2">Contact</h4>
               <div class="flex items-center gap-2 text-sm text-gray-700">
                 <i data-lucide="mail" class="w-4 h-4 text-gold shrink-0"></i>
-                <a href="mailto:heydari@northeastern.edu" class="hover:text-gold transition-colors break-all">heydari@northeastern.edu</a>
+                <a href="mailto:b.heydari@northeastern.edu" class="hover:text-gold transition-colors break-all">b.heydari@northeastern.edu</a>
               </div>
               <div class="flex items-start gap-2 text-sm text-gray-700">
                 <i data-lucide="map-pin" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i>
@@ -611,7 +638,7 @@
             </div>
             <p class="font-body text-sm text-gray-700 leading-relaxed">
               If you are a prospective PhD student or postdoc, please directly contact
-              <a href="mailto:heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>.
+              <a href="mailto:b.heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>.
               In your email, include your CV and mention briefly (but specifically) how your goals and research interests are linked to MAGICS lab and how being a lab member will help you with your career goals. Also, mention what skill sets (theoretical, tools, interdisciplinary experience, etc.) you can bring to the lab.
             </p>
           </div>
@@ -626,7 +653,7 @@
             </div>
             <p class="font-body text-sm text-gray-700 leading-relaxed">
               If you are a Masters student at Northeastern and looking for doing your Masters project or thesis in the MAGICS lab, please send an email to
-              <a href="mailto:heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>,
+              <a href="mailto:b.heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>,
               include a copy of your CV and your coursework at your NU (with the grades), your prior experience with coding and working with data, as well as the research areas and domains you are interested in.
             </p>
           </div>
@@ -658,7 +685,8 @@
         <!-- Column 1: Branding -->
         <div>
           <div class="flex items-center gap-2 mb-3">
-            <span class="flex items-center justify-center w-7 h-7 rounded bg-gold text-white font-heading font-bold text-xs">N</span>
+            <img src="assets/images/northeastern-logo.png" alt="Northeastern University" class="w-7 h-7 rounded object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="items-center justify-center w-7 h-7 rounded bg-gold text-white font-heading font-bold text-xs" style="display:none;">N</span>
             <span class="font-heading font-bold text-white text-base tracking-wide">MAGICS LAB</span>
           </div>
           <p class="text-sm text-white/60 leading-relaxed">Northeastern University<br>College of Engineering</p>
@@ -687,7 +715,7 @@
             </div>
             <div class="flex items-center gap-2 text-sm text-white/60">
               <i data-lucide="mail" class="w-4 h-4 text-gold shrink-0"></i>
-              <a href="mailto:heydari@northeastern.edu" class="hover:text-gold transition-colors">heydari@northeastern.edu</a>
+              <a href="mailto:b.heydari@northeastern.edu" class="hover:text-gold transition-colors">b.heydari@northeastern.edu</a>
             </div>
           </address>
           <!-- Social icon links -->
@@ -761,11 +789,29 @@
 
       // 4. Navbar scroll effect
       var navbar = document.getElementById('navbar');
+      var desktopNavLinks = document.querySelectorAll('ul.hidden.md\\:flex .nav-link');
+      var wordmark = document.querySelector('#navbar .font-heading.font-bold');
       function handleNavbarScroll() {
         if (window.scrollY > 50) {
           navbar.classList.add('bg-cream', 'shadow-sm', 'border-b', 'border-gray-200');
+          desktopNavLinks.forEach(function (link) {
+            link.classList.remove('text-white');
+            link.classList.add('text-navy');
+          });
+          if (wordmark) {
+            wordmark.classList.remove('text-white');
+            wordmark.classList.add('text-navy');
+          }
         } else {
           navbar.classList.remove('bg-cream', 'shadow-sm', 'border-b', 'border-gray-200');
+          desktopNavLinks.forEach(function (link) {
+            link.classList.remove('text-navy');
+            link.classList.add('text-white');
+          });
+          if (wordmark) {
+            wordmark.classList.remove('text-navy');
+            wordmark.classList.add('text-white');
+          }
         }
       }
       window.addEventListener('scroll', handleNavbarScroll, { passive: true });
@@ -826,6 +872,127 @@
       });
 
     });
+  </script>
+
+  <!-- Network animation for hero background -->
+  <script>
+    (function () {
+      var canvas = document.getElementById('network-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var nodes = [];
+      var NUM_NODES = 80;
+      var CONNECT_DIST = 150;
+      var MOUSE_REPEL_DIST = 120;
+      var MOUSE_REPEL_STRENGTH = 0.8;
+      var mouse = { x: -9999, y: -9999 };
+      var heroSection = document.getElementById('home');
+
+      function resize() {
+        canvas.width = heroSection.offsetWidth;
+        canvas.height = heroSection.offsetHeight;
+      }
+
+      function initNodes() {
+        nodes = [];
+        for (var i = 0; i < NUM_NODES; i++) {
+          nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 1.5 + 1.5
+          });
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Update and draw nodes
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+
+          // Mouse repulsion
+          var dx = n.x - mouse.x;
+          var dy = n.y - mouse.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_REPEL_DIST && dist > 0) {
+            var force = (MOUSE_REPEL_DIST - dist) / MOUSE_REPEL_DIST * MOUSE_REPEL_STRENGTH;
+            n.vx += (dx / dist) * force;
+            n.vy += (dy / dist) * force;
+          }
+
+          // Damping
+          n.vx *= 0.98;
+          n.vy *= 0.98;
+
+          // Ensure minimum speed for continuous motion
+          var speed = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
+          if (speed < 0.15) {
+            n.vx += (Math.random() - 0.5) * 0.05;
+            n.vy += (Math.random() - 0.5) * 0.05;
+          }
+
+          n.x += n.vx;
+          n.y += n.vy;
+
+          // Wrap around edges
+          if (n.x < -10) n.x = canvas.width + 10;
+          if (n.x > canvas.width + 10) n.x = -10;
+          if (n.y < -10) n.y = canvas.height + 10;
+          if (n.y > canvas.height + 10) n.y = -10;
+        }
+
+        // Draw edges
+        for (var i = 0; i < nodes.length; i++) {
+          for (var j = i + 1; j < nodes.length; j++) {
+            var dx = nodes[i].x - nodes[j].x;
+            var dy = nodes[i].y - nodes[j].y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < CONNECT_DIST) {
+              var alpha = (1 - dist / CONNECT_DIST) * 0.25;
+              ctx.strokeStyle = 'rgba(194, 138, 46, ' + alpha + ')';
+              ctx.lineWidth = 0.6;
+              ctx.beginPath();
+              ctx.moveTo(nodes[i].x, nodes[i].y);
+              ctx.lineTo(nodes[j].x, nodes[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw nodes
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+          ctx.fillStyle = 'rgba(194, 138, 46, 0.5)';
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      // Track mouse position relative to hero section
+      heroSection.addEventListener('mousemove', function (e) {
+        var rect = heroSection.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      heroSection.addEventListener('mouseleave', function () {
+        mouse.x = -9999;
+        mouse.y = -9999;
+      });
+
+      window.addEventListener('resize', function () {
+        resize();
+      });
+
+      resize();
+      initNodes();
+      animate();
+    })();
   </script>
 
 </body>
