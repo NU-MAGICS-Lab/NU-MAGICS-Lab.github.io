@@ -125,6 +125,63 @@
       max-width: 360px;
       margin: 0 auto;
     }
+
+    /* Email obfuscation display */
+    .email-obfuscated {
+      user-select: all;
+      cursor: pointer;
+    }
+    .email-obfuscated:hover {
+      color: #C28A2E;
+    }
+
+    /* Research card hover */
+    .research-card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease, z-index 0s;
+      position: relative;
+    }
+    .research-card:hover {
+      transform: scale(1.06);
+      z-index: 10;
+      box-shadow: 0 20px 40px rgba(15,36,64,0.18);
+    }
+    .research-card .research-img {
+      transition: object-fit 0.3s ease;
+    }
+    .research-card:hover .research-img {
+      object-fit: contain;
+    }
+
+    /* Research scroll container */
+    .research-scroll {
+      max-height: 950px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .research-scroll::-webkit-scrollbar { width: 4px; }
+    .research-scroll::-webkit-scrollbar-thumb { background: #C28A2E; border-radius: 2px; }
+
+    /* Copy toast notification */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1B365D;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="bg-cream text-gray-800 font-body antialiased">
@@ -524,16 +581,17 @@
         </div>
 
         <!-- Research area cards -->
+        <div class="research-scroll">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
 
-          <!-- Card 1 -->
-          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
+          <!-- Card 1: Architecture of Illusion -->
+          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden research-card">
             <div
               class="w-full bg-gray-100 aspect-video flex items-center justify-center overflow-hidden"
               role="img"
               aria-label="Connected Minds framework diagram"
             >
-              <img src="assets/images/research/architecture-of-illusion.png" alt="Connected Minds framework diagram" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="assets/images/research/architecture-of-illusion.png" alt="Connected Minds framework diagram" class="w-full h-full object-cover research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <span class="text-sm text-gray-400 font-body italic px-4 text-center" style="display:none;">Connected Minds framework diagram</span>
             </div>
             <div class="p-6">
@@ -541,17 +599,28 @@
               <p class="font-body text-gray-600 leading-relaxed text-sm">
                 We develop the <em>Connected Minds</em> framework to study how network structure and information visibility shape strategic reasoning. By introducing a locality parameter that controls whether agents behave like myopic local observers or globally informed reasoners, we connect Level-k and Cognitive Hierarchy models within one unified framework and show how transparency can be used as a mechanism-design lever.
               </p>
+              <p class="font-body text-xs text-gray-500 leading-relaxed mt-4 italic border-t border-gray-100 pt-3">
+                Ebrahimi, R., Ilami, S., Heydari, B., Trevino, I., &amp; Franceschetti, M. (2026). The Architecture of Illusion: Network Opacity and Strategic Escalation. <em>arXiv preprint arXiv:2602.10053</em>.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <a href="https://arxiv.org/abs/2602.10053" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 bg-navy text-white text-xs font-medium rounded hover:bg-navy-light transition-colors">
+                  <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                </a>
+                <button onclick="copyBibtex('architecture-of-illusion')" class="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-white text-xs font-medium rounded hover:bg-gold-light transition-colors">
+                  <i data-lucide="quote" class="w-3 h-3"></i> Cite
+                </button>
+              </div>
             </div>
           </article>
 
-          <!-- Card 2 -->
-          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
+          <!-- Card 2: Fine-Tuning Small LLMs -->
+          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden research-card">
             <div
               class="w-full bg-gray-100 aspect-video flex items-center justify-center overflow-hidden"
               role="img"
               aria-label="LLM fine-tuning workflow diagram"
             >
-              <img src="assets/images/research/llm-finetuning.png" alt="LLM fine-tuning workflow diagram" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="assets/images/research/llm-finetuning.png" alt="LLM fine-tuning workflow diagram" class="w-full h-full object-cover research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <span class="text-sm text-gray-400 font-body italic px-4 text-center" style="display:none;">LLM fine-tuning workflow diagram</span>
             </div>
             <div class="p-6">
@@ -559,35 +628,60 @@
               <p class="font-body text-gray-600 leading-relaxed text-sm">
                 We study whether smaller language models can inherit strategic reasoning capabilities from larger models through fine-tuning. Using game-theoretic social dilemmas across multiple contexts, we show that a fine-tuned small model can better reproduce the decisions and reasoning patterns of a much larger model, while remaining far more computationally efficient.
               </p>
+              <p class="font-body text-xs text-gray-500 leading-relaxed mt-4 italic border-t border-gray-100 pt-3">
+                Lore, N., Ilami, S., &amp; Heydari, B. (2024). Large model strategic thinking, small model efficiency: transferring theory of mind in large language models. <em>arXiv preprint arXiv:2408.05241</em>.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <a href="https://arxiv.org/abs/2408.05241" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 bg-navy text-white text-xs font-medium rounded hover:bg-navy-light transition-colors">
+                  <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                </a>
+                <button onclick="copyBibtex('llm-finetuning')" class="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-white text-xs font-medium rounded hover:bg-gold-light transition-colors">
+                  <i data-lucide="quote" class="w-3 h-3"></i> Cite
+                </button>
+              </div>
             </div>
           </article>
 
-          <!-- Card 3 -->
-          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
+          <!-- Card 3: Adaptive Information Governance -->
+          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden research-card">
             <div
               class="w-full bg-gray-100 aspect-video flex items-center justify-center overflow-hidden"
               role="img"
               aria-label="Adaptive governance in multi-agent LLM systems diagram"
             >
-              <img src="assets/images/research/llm-rl-jmd.png" alt="Adaptive governance in multi-agent LLM systems diagram" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="assets/images/research/llm-rl-jmd.png" alt="Adaptive governance in multi-agent LLM systems diagram" class="w-full h-full object-cover research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <span class="text-sm text-gray-400 font-body italic px-4 text-center" style="display:none;">Adaptive governance in multi-agent LLM systems diagram</span>
             </div>
             <div class="p-6">
               <h3 class="font-heading text-xl font-semibold text-navy mb-3">Adaptive Information Governance in Multi-Agent AI Systems</h3>
               <p class="font-body text-gray-600 leading-relaxed text-sm">
-                We build a governance framework for multi-agent sociotechnical systems in which an RL-based manager dynamically controls what information each LLM agent can access over time. Rather than changing payoffs or hard-coding rules, the system steers collective behavior through adaptive information signals, improving cooperation while preserving agent autonomy in repeated strategic settings :contentReference[oaicite:1]{index=1}.
+                We build a governance framework for multi-agent sociotechnical systems in which an RL-based manager dynamically controls what information each LLM agent can access over time. Rather than changing payoffs or hard-coding rules, the system steers collective behavior through adaptive information signals, improving cooperation while preserving agent autonomy in repeated strategic settings.
               </p>
+              <p class="font-body text-xs text-gray-500 leading-relaxed mt-4 italic border-t border-gray-100 pt-3">
+                Chen, Q., Ilami, S., Lore, N., and Heydari, B. (March 9, 2026). Adaptive Information Modulation: Designing Governance Mechanisms for Multi-Agent Artificial Intelligence Systems. <em>ASME. J. Mech. Des.</em> April 2026; 148(4): 041708. https://doi.org/10.1115/1.4070755
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <a href="https://asmedigitalcollection.asme.org/mechanicaldesign/article/148/4/041708/1229782/Adaptive-Information-Modulation-Designing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 bg-navy text-white text-xs font-medium rounded hover:bg-navy-light transition-colors">
+                  <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                </a>
+                <button onclick="copyBibtex('adaptive-info')" class="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-white text-xs font-medium rounded hover:bg-gold-light transition-colors">
+                  <i data-lucide="quote" class="w-3 h-3"></i> Cite
+                </button>
+                <button onclick="copyDOI('10.1115/1.4070755')" class="inline-flex items-center gap-1 px-3 py-1.5 border border-gray-300 text-gray-600 text-xs font-medium rounded hover:bg-gray-100 transition-colors">
+                  <i data-lucide="copy" class="w-3 h-3"></i> Copy DOI
+                </button>
+              </div>
             </div>
           </article>
 
-          <!-- Card 4 -->
-          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
+          <!-- Card 4: Mobility Networks -->
+          <article class="bg-white border border-gray-200 rounded-lg overflow-hidden research-card">
             <div
               class="w-full bg-gray-100 aspect-video flex items-center justify-center overflow-hidden"
               role="img"
               aria-label="Mobility-network forecasting pipeline diagram"
             >
-              <img src="assets/images/research/network-topology.png" alt="Mobility-network forecasting pipeline diagram" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="assets/images/research/network-topology.png" alt="Mobility-network forecasting pipeline diagram" class="w-full h-full object-cover research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <span class="text-sm text-gray-400 font-body italic px-4 text-center" style="display:none;">Mobility-network forecasting pipeline diagram</span>
             </div>
             <div class="p-6">
@@ -595,9 +689,21 @@
               <p class="font-body text-gray-600 leading-relaxed text-sm">
                 We examine when behavioral network data meaningfully improve forecasting accuracy in computational social systems. Using smartphone-derived mobility networks and town-level COVID-19 outcomes in Massachusetts, we show that mobility features provide major predictive gains when primary surveillance is weak, but add only limited value when strong autoregressive case-history signals are already available.
               </p>
+              <p class="font-body text-xs text-gray-500 leading-relaxed mt-4 italic border-t border-gray-100 pt-3">
+                Ilami, S., Cao, Q., &amp; Heydari, B. (2025). Network Topology Matters, But Not Always: Mobility Networks in Epidemic Forecasting. <em>arXiv preprint arXiv:2510.20025</em>.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <a href="https://arxiv.org/abs/2510.20025" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 bg-navy text-white text-xs font-medium rounded hover:bg-navy-light transition-colors">
+                  <i data-lucide="external-link" class="w-3 h-3"></i> Paper
+                </a>
+                <button onclick="copyBibtex('mobility-networks')" class="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-white text-xs font-medium rounded hover:bg-gold-light transition-colors">
+                  <i data-lucide="quote" class="w-3 h-3"></i> Cite
+                </button>
+              </div>
             </div>
           </article>
 
+        </div>
         </div>
 
         <!-- Selected Publications -->
@@ -637,7 +743,7 @@
               Complex Networks, Computational Social Science, Intelligent SocioTechnical Systems, Process Mining
             </p>
             <div class="flex justify-center gap-3 mt-3">
-                          <a href="mailto:maddah.n@northeastern.edu" aria-label="Email Negin Maddah" class="text-gray-400 hover:text-gold transition-colors">
+                          <a href="#" onclick="copyEmail('maddah.n[at]northeastern[dot]edu'); return false;" aria-label="Copy Negin Maddah email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
@@ -657,6 +763,7 @@
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>  
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('maddah.n[at]northeastern[dot]edu')" title="Click to copy email">maddah.n[at]northeastern[dot]edu</p>
           </div>
 
           <!-- Sepehr Ilami -->
@@ -672,7 +779,7 @@
               Computational Social Science, Multi-Agent Systems, AI Agents, Strategic Decision-Making, Human Mobility, Social Contagion, Norm Emergence
             </p>
             <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:ilami.a@northeastern.edu" aria-label="Email Sepehr Ilami" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('ilami.a[at]northeastern[dot]edu'); return false;" aria-label="Copy Sepehr Ilami email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
@@ -692,6 +799,7 @@
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('ilami.a[at]northeastern[dot]edu')" title="Click to copy email">ilami.a[at]northeastern[dot]edu</p>
           </div>
 
           <!-- Hongan Zhu -->
@@ -707,7 +815,7 @@
               Complex Systems, Network Science, Computational Methods
             </p>
             <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:zhu.honga@northeastern.edu" aria-label="Email Hongan Zhu" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('zhu.honga[at]northeastern[dot]edu'); return false;" aria-label="Copy Hongan Zhu email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
@@ -727,6 +835,7 @@
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('zhu.honga[at]northeastern[dot]edu')" title="Click to copy email">zhu.honga[at]northeastern[dot]edu</p>
           </div>
 
           <!-- You! -->
@@ -773,26 +882,11 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>—</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:ilami.a@northeastern.edu" aria-label="Email Sepehr Ilami" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('lora.n[at]northeastern[dot]edu'); return false;" aria-label="Copy Nunzio Lorè email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
-              
-              <a href="https://scholar.google.com/citations?user=i9FdICsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-              </a>
-              
-              <a href="https://sepehrilami.com/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami website" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="globe" class="w-4 h-4"></i>
-              </a>
-
-              <a href="https://github.com/sepehrilami" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami GitHub" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="github" class="w-4 h-4"></i>
-              </a>
-          
-              <a href="https://www.linkedin.com/in/sepehrilami/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="linkedin" class="w-4 h-4"></i>
-              </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('lora.n[at]northeastern[dot]edu')" title="Click to copy email">lora.n[at]northeastern[dot]edu</p>
             </div>
 
             <!-- Qiliang Chen -->
@@ -812,26 +906,11 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>—</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:ilami.a@northeastern.edu" aria-label="Email Sepehr Ilami" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('qilliang.chen[at]gmail[dot]com'); return false;" aria-label="Copy Qiliang Chen email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
-              
-              <a href="https://scholar.google.com/citations?user=i9FdICsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-              </a>
-              
-              <a href="https://sepehrilami.com/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami website" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="globe" class="w-4 h-4"></i>
-              </a>
-
-              <a href="https://github.com/sepehrilami" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami GitHub" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="github" class="w-4 h-4"></i>
-              </a>
-          
-              <a href="https://www.linkedin.com/in/sepehrilami/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
-                <i data-lucide="linkedin" class="w-4 h-4"></i>
-              </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('qilliang.chen[at]gmail[dot]com')" title="Click to copy email">qilliang.chen[at]gmail[dot]com</p>
             </div>
 
             <!-- Gabri Ansaldo -->
@@ -851,7 +930,7 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>Product Manager @ Motorola Solutions</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:ansaldo.gabri@gmail.com" aria-label="Email Gabri Ansaldo" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('ansaldo.gabri[at]gmail[dot]com'); return false;" aria-label="Copy Gabri Ansaldo email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
@@ -871,6 +950,7 @@
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('ansaldo.gabri[at]gmail[dot]com')" title="Click to copy email">ansaldo.gabri[at]gmail[dot]com</p>
             </div>
 
             <!-- Qingtao Cao -->
@@ -890,7 +970,7 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>Senior Data Scientist @ Saint-Gobain Research North America</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:cao.q@northeastern.edu" aria-label="Email Qingtao Cao" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('cao.q[at]northeastern[dot]edu'); return false;" aria-label="Copy Qingtao Cao email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
@@ -902,6 +982,7 @@
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('cao.q[at]northeastern[dot]edu')" title="Click to copy email">cao.q[at]northeastern[dot]edu</p>
             </div>
 
             <!-- Soumyakant Padhee -->
@@ -914,33 +995,34 @@
               <p class="text-xs text-slate-custom mb-2">(PhD Student)</p>
               <p class="text-xs text-gray-600 leading-relaxed">
                 <span class="font-semibold text-gold">Research Interests:</span><br>
-                Innovation in Engineering Design Teams, Causal Identification in SocioTechnical Systems, Experimental Methods
+                Collective Intelligence, Socio-Technical Systems, Experimental Game Theory, Data Science in OM
               </p>
               <div class="flex items-start gap-2 mt-3 text-left border-l-2 border-gold bg-amber-50 rounded-r px-3 py-2" aria-label="First job after graduation">
                 <i data-lucide="briefcase" class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5"></i>
-                <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>—</p>
+                <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>Assistant Professor, College of Business &amp; Economics, Lenoir-Rhyne University, Hickory, North Carolina</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="mailto:ilami.a@northeastern.edu" aria-label="Email Sepehr Ilami" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="#" onclick="copyEmail('soumyakantpadhee2011[at]gmail[dot]com'); return false;" aria-label="Copy Soumyakant Padhee email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://scholar.google.com/citations?user=i9FdICsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://scholar.google.de/citations?user=z-9KUUUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://sepehrilami.com/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami website" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.soumyakantpadhee.com/" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee website" class="text-gray-400 hover:text-gold transition-colors">
                 <i data-lucide="globe" class="w-4 h-4"></i>
               </a>
 
-              <a href="https://github.com/sepehrilami" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami GitHub" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://github.com/soumyakantpadhee" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee GitHub" class="text-gray-400 hover:text-gold transition-colors">
                 <i data-lucide="github" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/sepehrilami/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/soumyakant-padhee-03438758/" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
+            <p class="text-xs text-gray-500 mt-2 email-obfuscated" onclick="copyEmail('soumyakantpadhee2011[at]gmail[dot]com')" title="Click to copy email">soumyakantpadhee2011[at]gmail[dot]com</p>
             </div>
 
           </div>
@@ -1401,6 +1483,51 @@
       initNodes();
       animate();
     })();
+  </script>
+
+  <!-- Copy toast notification -->
+  <div id="copy-toast" class="copy-toast" aria-live="polite"></div>
+
+  <!-- Email copy, BibTeX copy, DOI copy functions -->
+  <script>
+    var bibtexData = {
+      'architecture-of-illusion': '@article{ebrahimi2026architecture,\n  title={The Architecture of Illusion: Network Opacity and Strategic Escalation},\n  author={Ebrahimi, Raman and Ilami, Sepehr and Heydari, Babak and Trevino, Isabel and Franceschetti, Massimo},\n  journal={arXiv preprint arXiv:2602.10053},\n  year={2026}\n}',
+      'llm-finetuning': '@article{lore2024large,\n  title={Large model strategic thinking, small model efficiency: transferring theory of mind in large language models},\n  author={Lore, Nunzio and Ilami, Sepehr and Heydari, Babak},\n  journal={arXiv preprint arXiv:2408.05241},\n  year={2024}\n}',
+      'adaptive-info': '@article{chen2026adaptive,\n  title={Adaptive Information Modulation: Designing Governance Mechanisms for Multi-Agent AI Systems},\n  author={Chen, Qiliang and Ilami, Sepehr and Lore, Nunzio and Heydari, Babak},\n  journal={Journal of Mechanical Design},\n  pages={1--45},\n  year={2026}\n}',
+      'mobility-networks': '@article{ilami2025network,\n  title={Network Topology Matters, But Not Always: Mobility Networks in Epidemic Forecasting},\n  author={Ilami, Sepehr and Cao, Qingtao and Heydari, Babak},\n  journal={arXiv preprint arXiv:2510.20025},\n  year={2025}\n}'
+    };
+
+    function showToast(message) {
+      var toast = document.getElementById('copy-toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(function () {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    function copyEmail(obfuscated) {
+      var email = obfuscated.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.');
+      navigator.clipboard.writeText(email).then(function () {
+        showToast('Email copied!');
+      });
+    }
+
+    function copyBibtex(key) {
+      var bib = bibtexData[key];
+      if (bib) {
+        navigator.clipboard.writeText(bib).then(function () {
+          showToast('BibTeX copied!');
+        });
+      }
+    }
+
+    function copyDOI(doi) {
+      navigator.clipboard.writeText(doi).then(function () {
+        showToast('DOI copied!');
+      });
+    }
   </script>
 
 </body>
