@@ -161,6 +161,32 @@
     .research-scroll::-webkit-scrollbar { width: 4px; }
     .research-scroll::-webkit-scrollbar-thumb { background: #C28A2E; border-radius: 2px; }
 
+    /* Icon tooltip on hover */
+    .icon-tooltip {
+      position: relative;
+    }
+    .icon-tooltip::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: #1B365D;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .icon-tooltip:hover::before {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
     /* Copy toast notification */
     .copy-toast {
       position: fixed;
@@ -667,9 +693,7 @@
                 <button onclick="copyBibtex('adaptive-info')" class="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-white text-xs font-medium rounded hover:bg-gold-light transition-colors">
                   <i data-lucide="quote" class="w-3 h-3"></i> Cite
                 </button>
-                <button onclick="copyDOI('10.1115/1.4070755')" class="inline-flex items-center gap-1 px-3 py-1.5 border border-gray-300 text-gray-600 text-xs font-medium rounded hover:bg-gray-100 transition-colors">
-                  <i data-lucide="copy" class="w-3 h-3"></i> Copy DOI
-                </button>
+
               </div>
             </div>
           </article>
@@ -743,23 +767,23 @@
               Complex Networks, Computational Social Science, Intelligent SocioTechnical Systems, Process Mining
             </p>
             <div class="flex justify-center gap-3 mt-3">
-                          <a href="#" onclick="copyEmail('maddah.n[at]northeastern[dot]edu'); return false;" aria-label="Copy Negin Maddah email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+                          <a href="#" onclick="copyEmail('maddah.n[at]northeastern[dot]edu'); return false;" aria-label="Copy Negin Maddah email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://scholar.google.com/citations?user=hXWdTswAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://scholar.google.com/citations?user=hXWdTswAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah Google Scholar" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Google Scholar">
                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://neginmaddah.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah website" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://neginmaddah.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah website" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Website">
                 <i data-lucide="globe" class="w-4 h-4"></i>
               </a>
 
-              <a href="https://github.com/neginmaddah" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah GitHub" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://github.com/neginmaddah" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah GitHub" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="GitHub">
                 <i data-lucide="github" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/neginmaddah/" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/neginmaddah/" target="_blank" rel="noopener noreferrer" aria-label="Negin Maddah LinkedIn" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="LinkedIn">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>  
             </div>
@@ -779,23 +803,23 @@
               Computational Social Science, Multi-Agent Systems, AI Agents, Strategic Decision-Making, Human Mobility, Social Contagion, Norm Emergence
             </p>
             <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('ilami.a[at]northeastern[dot]edu'); return false;" aria-label="Copy Sepehr Ilami email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('ilami.a[at]northeastern[dot]edu'); return false;" aria-label="Copy Sepehr Ilami email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://scholar.google.com/citations?user=i9FdICsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://scholar.google.com/citations?user=i9FdICsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami Google Scholar" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Google Scholar">
                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://sepehrilami.com/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami website" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://sepehrilami.com/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami website" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Website">
                 <i data-lucide="globe" class="w-4 h-4"></i>
               </a>
 
-              <a href="https://github.com/sepehrilami" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami GitHub" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://github.com/sepehrilami" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami GitHub" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="GitHub">
                 <i data-lucide="github" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/sepehrilami/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/sepehrilami/" target="_blank" rel="noopener noreferrer" aria-label="Sepehr Ilami LinkedIn" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="LinkedIn">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
@@ -815,7 +839,7 @@
               Complex Systems, Network Science, Computational Methods
             </p>
             <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('zhu.honga[at]northeastern[dot]edu'); return false;" aria-label="Copy Hongan Zhu email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('zhu.honga[at]northeastern[dot]edu'); return false;" aria-label="Copy Hongan Zhu email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
@@ -827,11 +851,11 @@
                 <i data-lucide="globe" class="w-4 h-4"></i>
               </a> -->
 
-              <a href="https://github.com/zhuhongan" target="_blank" rel="noopener noreferrer" aria-label="Hongan Zhu GitHub" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://github.com/zhuhongan" target="_blank" rel="noopener noreferrer" aria-label="Hongan Zhu GitHub" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="GitHub">
                 <i data-lucide="github" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/hongan-zhu/" target="_blank" rel="noopener noreferrer" aria-label="Hongan Zhu LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/hongan-zhu/" target="_blank" rel="noopener noreferrer" aria-label="Hongan Zhu LinkedIn" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="LinkedIn">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
@@ -882,7 +906,7 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>—</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('lora.n[at]northeastern[dot]edu'); return false;" aria-label="Copy Nunzio Lorè email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('lora.n[at]northeastern[dot]edu'); return false;" aria-label="Copy Nunzio Lorè email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
             </div>
@@ -906,7 +930,7 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>—</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('qilliang.chen[at]gmail[dot]com'); return false;" aria-label="Copy Qiliang Chen email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('qilliang.chen[at]gmail[dot]com'); return false;" aria-label="Copy Qiliang Chen email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
             </div>
@@ -930,23 +954,23 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>Product Manager @ Motorola Solutions</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('ansaldo.gabri[at]gmail[dot]com'); return false;" aria-label="Copy Gabri Ansaldo email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('ansaldo.gabri[at]gmail[dot]com'); return false;" aria-label="Copy Gabri Ansaldo email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://scholar.google.com/citations?user=E3sJGUAAAAAJ&hl=en&authuser=1&oi=ao" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://scholar.google.com/citations?user=E3sJGUAAAAAJ&hl=en&authuser=1&oi=ao" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo Google Scholar" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Google Scholar">
                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://gabriansaldo.com/" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo website" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://gabriansaldo.com/" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo website" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Website">
                 <i data-lucide="globe" class="w-4 h-4"></i>
               </a>
 
-              <a href="https://github.com/gabriansa" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo GitHub" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://github.com/gabriansa" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo GitHub" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="GitHub">
                 <i data-lucide="github" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/gabrieleansaldo/" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/gabrieleansaldo/" target="_blank" rel="noopener noreferrer" aria-label="Gabri Ansaldo LinkedIn" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="LinkedIn">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
@@ -970,15 +994,15 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>Senior Data Scientist @ Saint-Gobain Research North America</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('cao.q[at]northeastern[dot]edu'); return false;" aria-label="Copy Qingtao Cao email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('cao.q[at]northeastern[dot]edu'); return false;" aria-label="Copy Qingtao Cao email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://scholar.google.com/citations?user=jF-D4_oAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Qingtao Cao Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://scholar.google.com/citations?user=jF-D4_oAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Qingtao Cao Google Scholar" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Google Scholar">
                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/qingtao-cao-800197a7/" target="_blank" rel="noopener noreferrer" aria-label="Qingtao Cao LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/qingtao-cao-800197a7/" target="_blank" rel="noopener noreferrer" aria-label="Qingtao Cao LinkedIn" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="LinkedIn">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
@@ -1002,23 +1026,23 @@
                 <p class="text-xs text-slate-custom leading-relaxed"><span class="font-semibold text-gold">First job after graduation:</span><br>Assistant Professor, College of Business &amp; Economics, Lenoir-Rhyne University, Hickory, North Carolina</p>
               </div>
               <div class="flex justify-center gap-3 mt-3">
-              <a href="#" onclick="copyEmail('soumyakantpadhee2011[at]gmail[dot]com'); return false;" aria-label="Copy Soumyakant Padhee email" class="text-gray-400 hover:text-gold transition-colors" title="Click to copy email">
+              <a href="#" onclick="copyEmail('soumyakantpadhee2011[at]gmail[dot]com'); return false;" aria-label="Copy Soumyakant Padhee email" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Email">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://scholar.google.de/citations?user=z-9KUUUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee Google Scholar" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://scholar.google.de/citations?user=z-9KUUUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee Google Scholar" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Google Scholar">
                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
               </a>
               
-              <a href="https://www.soumyakantpadhee.com/" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee website" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.soumyakantpadhee.com/" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee website" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="Website">
                 <i data-lucide="globe" class="w-4 h-4"></i>
               </a>
 
-              <a href="https://github.com/soumyakantpadhee" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee GitHub" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://github.com/soumyakantpadhee" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee GitHub" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="GitHub">
                 <i data-lucide="github" class="w-4 h-4"></i>
               </a>
           
-              <a href="https://www.linkedin.com/in/soumyakant-padhee-03438758/" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee LinkedIn" class="text-gray-400 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/in/soumyakant-padhee-03438758/" target="_blank" rel="noopener noreferrer" aria-label="Soumyakant Padhee LinkedIn" class="text-gray-400 hover:text-gold transition-colors icon-tooltip" data-tooltip="LinkedIn">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
               </a>
             </div>
@@ -1126,6 +1150,7 @@
         <div class="text-center mb-12">
           <h2 class="font-heading text-3xl md:text-4xl font-semibold text-navy mb-3">Join Us</h2>
           <p class="font-heading text-lg text-gold">Information for Prospective Students and Postdocs</p>
+          <p class="font-body text-sm text-gray-600 mt-3 max-w-2xl mx-auto leading-relaxed">Thank you for your interest in the MAGICS Lab! We are always looking for motivated and talented individuals to join our team. Please review the information below based on the position you are seeking and reach out accordingly.</p>
         </div>
 
         <div class="space-y-6">
@@ -1141,7 +1166,16 @@
             <p class="font-body text-sm text-gray-700 leading-relaxed">
               If you are a prospective PhD student or postdoc, please directly contact
               <a href="mailto:b.heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>.
-              In your email, include your CV and mention briefly (but specifically) how your goals and research interests are linked to MAGICS lab and how being a lab member will help you with your career goals. Also, mention what skill sets (theoretical, tools, interdisciplinary experience, etc.) you can bring to the lab.
+              Please use the following email subject line format:
+            </p>
+            <p class="font-body text-xs text-navy bg-gray-50 border border-gray-200 rounded px-3 py-2 mt-2 font-medium tracking-wide">
+              Prospective PhD Student &ndash; [Your Name] &ndash; [Target Semester, e.g., Fall 2027]
+            </p>
+            <p class="font-body text-xs text-navy bg-gray-50 border border-gray-200 rounded px-3 py-2 mt-1 font-medium tracking-wide">
+              Prospective Postdoc &ndash; [Your Name] &ndash; [Target Start Date]
+            </p>
+            <p class="font-body text-sm text-gray-700 leading-relaxed mt-2">
+              In your email, include your CV and mention briefly (but specifically) how your goals and research interests are linked to the MAGICS Lab and how being a lab member will help you with your career goals. Also, mention what skill sets (theoretical, tools, interdisciplinary experience, etc.) you can bring to the lab.
             </p>
           </div>
 
@@ -1154,9 +1188,15 @@
               <h3 class="font-heading text-lg font-semibold text-navy">Masters Students</h3>
             </div>
             <p class="font-body text-sm text-gray-700 leading-relaxed">
-              If you are a Masters student at Northeastern and looking for doing your Masters project or thesis in the MAGICS lab, please send an email to
-              <a href="mailto:b.heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>,
-              include a copy of your CV and your coursework at your NU (with the grades), your prior experience with coding and working with data, as well as the research areas and domains you are interested in.
+              If you are a Masters student at Northeastern and looking to do your Masters project or thesis in the MAGICS Lab, please send an email to
+              <a href="mailto:b.heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>
+              with the following subject line format:
+            </p>
+            <p class="font-body text-xs text-navy bg-gray-50 border border-gray-200 rounded px-3 py-2 mt-2 font-medium tracking-wide">
+              Prospective Masters Student &ndash; [Your Name] &ndash; [Project / Thesis] &ndash; [Target Semester, e.g., Fall 2027]
+            </p>
+            <p class="font-body text-sm text-gray-700 leading-relaxed mt-2">
+              In your email, include a copy of your CV, your coursework at NU (with grades), your prior experience with coding and working with data, as well as the research areas and domains you are interested in.
             </p>
           </div>
 
@@ -1169,7 +1209,15 @@
               <h3 class="font-heading text-lg font-semibold text-navy">Undergraduate Students</h3>
             </div>
             <p class="font-body text-sm text-gray-700 leading-relaxed">
-              We also welcome motivated undergraduate students who want to gain interdisciplinary research experience at the cross-section of engineering and social and economic sciences.
+              We also welcome motivated undergraduate students who want to gain interdisciplinary research experience at the intersection of engineering and social and economic sciences. If you are interested, please reach out to
+              <a href="mailto:b.heydari@northeastern.edu" class="text-gold hover:text-gold-dark font-medium underline underline-offset-2 transition-colors">Prof. Heydari</a>
+              with the following subject line format:
+            </p>
+            <p class="font-body text-xs text-navy bg-gray-50 border border-gray-200 rounded px-3 py-2 mt-2 font-medium tracking-wide">
+              Prospective Undergraduate Researcher &ndash; [Your Name] &ndash; [Target Semester, e.g., Fall 2027]
+            </p>
+            <p class="font-body text-sm text-gray-700 leading-relaxed mt-2">
+              In your email, include a brief description of your background, relevant coursework, and what areas of the lab's research interest you most.
             </p>
           </div>
 
@@ -1488,7 +1536,7 @@
   <!-- Copy toast notification -->
   <div id="copy-toast" class="copy-toast" aria-live="polite"></div>
 
-  <!-- Email copy, BibTeX copy, DOI copy functions -->
+  <!-- Email copy and BibTeX copy functions -->
   <script>
     var bibtexData = {
       'architecture-of-illusion': '@article{ebrahimi2026architecture,\n  title={The Architecture of Illusion: Network Opacity and Strategic Escalation},\n  author={Ebrahimi, Raman and Ilami, Sepehr and Heydari, Babak and Trevino, Isabel and Franceschetti, Massimo},\n  journal={arXiv preprint arXiv:2602.10053},\n  year={2026}\n}',
@@ -1523,11 +1571,6 @@
       }
     }
 
-    function copyDOI(doi) {
-      navigator.clipboard.writeText(doi).then(function () {
-        showToast('DOI copied!');
-      });
-    }
   </script>
 
 </body>
